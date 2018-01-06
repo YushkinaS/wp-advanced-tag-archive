@@ -23,14 +23,14 @@ class Tag_Archive {
         );
         
         $this->posttype_archive_templates = array(
-            'posts'     => plugin_dir_path( __FILE__ ) . '/templates/archive-post.php', 
+            'posts'    => plugin_dir_path( __FILE__ ) . '/templates/archive-post.php', 
             'articles' => plugin_dir_path( __FILE__ ) . '/templates/archive.php', 
             'events'   => plugin_dir_path( __FILE__ ) . '/templates/archive.php', 
             'news'     => plugin_dir_path( __FILE__ ) . '/templates/archive.php', 
         );
         
         $this->posttype_display_count = array(
-            'posts'     => 7, 
+            'posts'    => 7, 
             'articles' => 5, 
             'events'   => 2, 
             'news'     => 3,
@@ -50,7 +50,7 @@ class Tag_Archive {
             'show_in_nav_menus' => true,
             'query_var' => true,
             'rewrite'           => array(
-                'slug'       => 'tag',
+                'slug' => 'tag',
             ),
         ) );
 
@@ -156,12 +156,12 @@ template functions
     
     function posts_by_tag($term,$posttype) {
          $args = array(
-            'post_type' => $this->posttype_url_to_name[$posttype],
+            'post_type'     => $this->posttype_url_to_name[$posttype],
             'advanced_tags' => $term,
-            'post_status' => 'publish',
-            'nopaging' => true, 
-            'orderby' => 'date',
-            'order' => 'desc',
+            'post_status'   => 'publish',
+            'nopaging'      => true, 
+            'orderby'       => 'date',
+            'order'         => 'desc',
         );
         $posts = get_posts($args);
         
@@ -187,11 +187,11 @@ template functions
          $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         
          $args = array(
-            'post_type' => $this->posttype_url_to_name[$posttype],
-            'advanced_tags' => $term,
-            'post_status' => 'publish',
-            'orderby' => 'date',
-            'order' => 'desc',
+            'post_type'      => $this->posttype_url_to_name[$posttype],
+            'advanced_tags'  => $term,
+            'post_status'    => 'publish',
+            'orderby'        => 'date',
+            'order'          => 'desc',
             'posts_per_page' => 20,
             'paged' => $paged
         );
